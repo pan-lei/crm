@@ -1,9 +1,7 @@
 package com.panlei.crm.mapper;
 
 import com.panlei.crm.entity.Customer;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -23,4 +21,15 @@ public interface CustomerMapper {
             "#{sex, jdbcType=VARCHAR}, #{tel, jdbcType=VARCHAR}, #{address, jdbcType=VARCHAR}," +
             "#{level, jdbcType=INTEGER}, #{job, jdbcType=VARCHAR})")
     void save(Customer customer);
+
+    @Delete("DELETE FROM customer where id=#{id, jdbcType=INTEGER}")
+    void delete(int id);
+
+    @Select("SELECT * FROM customer WHERE id=#{id, jdbcType=INTEGER}")
+    Customer findCustomerById(int id);
+
+    @Update("UPDATE customer SET name=#{name, jdbcType=VARCHAR}, age=#{age, jdbcType=INTEGER}," +
+            "sex=#{sex, jdbcType=VARCHAR}, tel=#{tel, jdbcType=VARCHAR}, address=#{address, jdbcType=VARCHAR}," +
+            "level=#{level, jdbcType=INTEGER}, job=#{job, jdbcType=VARCHAR} WHERE id=#{id, jdbcType=INTEGER}")
+    void updateCus(Customer customer);
 }

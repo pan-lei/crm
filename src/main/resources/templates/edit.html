@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>user</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>修改用户</h1>
+<br/><br/>
+<div class="with:80%">
+    <form class="form-horizontal"   th:action="@{/admin/edit}" th:object="${customer}"  method="post">
+        <input type="hidden" name="id" th:value="*{id}" />
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">客户姓名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" th:value="*{name}" id="name" placeholder="name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age" class="col-sm-2 control-label" >年龄</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="age" th:value="*{age}" id="age" placeholder="age"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sex" class="col-sm-2 control-label">性别</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="sex" th:value="*{sex}" id="sex" placeholder="sex"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tel" class="col-sm-2 control-label">电话</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="tel" th:value="*{tel}" id="tel" placeholder="tel" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-sm-2 control-label">地址</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="address" th:value="*{address}" id="address" placeholder="address"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="level" class="col-sm-2 control-label">级别</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="level" th:value="*{level}" id="level" placeholder="level"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="job" class="col-sm-2 control-label">工作</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="job" th:value="*{job}" id="job" placeholder="job"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Submit" class="btn btn-info" />
+                &nbsp; &nbsp; &nbsp;
+                <a href="/admin/index" th:href="@{/admin/index}" class="btn btn-info">Back</a>
+            </div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

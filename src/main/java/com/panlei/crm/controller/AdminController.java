@@ -44,4 +44,24 @@ public class AdminController {
         return "redirect:/admin/index";
     }
 
+    @RequestMapping("/delete")
+    public String delete(int id) {
+        customerService.delete(id);
+        return "redirect:/admin/index";
+    }
+
+    @RequestMapping("/toEdit")
+    public String toEdit(Model model,int id) {
+        Customer customer=customerService.findCustomerById(id);
+        model.addAttribute("customer", customer);
+        return "edit";
+    }
+
+    @RequestMapping("/edit")
+    public String edit(Customer customer) {
+        customerService.edit(customer);
+        return "redirect:/admin/index";
+    }
+
+
 }

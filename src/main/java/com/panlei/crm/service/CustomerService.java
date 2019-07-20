@@ -26,4 +26,16 @@ public class CustomerService {
     public void save(Customer customer) {
         customerMapper.save(customer);
     }
+
+    public void delete(int id) {
+        customerMapper.delete(id);
+    }
+
+    public Customer findCustomerById(int id) {
+        return customerMapper.findCustomerById(id);
+    }
+
+    public void edit(Customer customer) {
+        customerMapper.updateCus(customer);
+    }
 }
