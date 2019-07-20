@@ -28,13 +28,20 @@ public class AdminController {
 
     @RequestMapping("/index")
     public String index(Model model) {
-        // 过滤器的工作
-//        Administor admin = (Administor) httpSession.getAttribute("admin");
-//        if(admin==null) return "login";
-
         List<Customer> customers = customerService.queryCustomers();
         model.addAttribute("customers", customers);
         return "list";
+    }
+
+    @RequestMapping("/toAdd")
+    public String addCus() {
+        return "add";
+    }
+
+    @RequestMapping("/add")
+    public String add(Customer customer) {
+        customerService.save(customer);
+        return "redirect:/admin/index";
     }
 
 }

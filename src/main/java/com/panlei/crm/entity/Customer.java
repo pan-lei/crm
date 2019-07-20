@@ -15,7 +15,7 @@ public class Customer {
     private int id;
     private String name;
     private int age;
-    private int sex;
+    private String sex;
     private String tel;
     private String address;
     private int level;

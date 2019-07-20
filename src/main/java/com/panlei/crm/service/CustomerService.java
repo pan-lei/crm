@@ -22,4 +22,8 @@ public class CustomerService {
         List<Customer> customers = customerMapper.queryList();
         return customers;
     }
+
+    public void save(Customer customer) {
+        customerMapper.save(customer);
+    }
 }
